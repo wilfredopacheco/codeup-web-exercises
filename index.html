@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Forms Practice!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>  
+  <body>
+    <main>
+      <section id="instructions">
+        <h1>Welcome to HTML Forms Practice</h1>
+        <h2>
+          Get Started!
+        </h2>  
+        <ol>
+          <li>Make your own copy of this project: Click the fish icon on the right and select "remix"</li>
+          <li>Create your glich account or login to save your work 📁</li>
+          <li>Begin testing forms, live on the web! 🌐</li>
+        </ol>
+        <h3>
+          Two ways to test your forms:  
+        </h3>
+        <ol>
+          <li>Set your form's action attiribute to be <pre>action="https://request-inspector.glitch.me"</pre></li>
+          <li>Use <a href="https://www.elformo.com/">El Formo</a></li>
+            <ul>
+              <li>sign up for the free tier of ElFormo</li>
+              <li>Where El Formo asks for the "Origin Domain", set it to the address of your project once you remix this version.</li>
+              <li>Use the action attribute that ElFormo gives you on your form.</li>
+              <li>El Formo will email you the contents of the form when submitted.</li>
+          </ul>
+        </ol>
+      </section>
+      <section id="example-form">
+        <h2>
+          Example Form:
+        </h2>
+        <form action="https://request-inspector.glitch.me" method="POST">
+          <label for="username">Username</label>
+            <input id="username" name="username" type="text">
+            <br>
+
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password">
+            <br>
+
+            <button type="submit">
+              Login
+          </button>
+      </form>    
+      </section>
+		
+    </main>
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://button.glitch.me/button.js"></script>
+  </body>
+</html>
