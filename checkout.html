@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+</head>
+<body>
+    <h1>Checkout</h1>
+    <br>
+    
+    <form>
+        <label for="credit-card">Credit Card Number:</label>
+        <table id="credit-card">
+            <tr>
+                <td><input type="number" required="required" maxlength="4" size="4" placeholder="####"></td>
+                <td><input type="number" required="required" maxlength="4" size="4" placeholder="####"></td>
+                <td><input type="number" required="required" maxlength="4" size="4" placeholder="####"></td>
+                <td><input type="number" required="required" maxlength="4" size="4" placeholder="####"></td>
+            </tr>
+        </table>
+        <br><br>
+
+        <label for="expire-date"></label>
+        <input type="number" id="expire-date" placeholder="##" name="mm" min="01" max="12">
+        <input type="number" id="expire-date" placeholder="##" name="yy" min="18" max="22">
+
+        <label for="card-expire">Expiration Date:</label>
+            <select name="expireMM" id="expireMM" required="required">
+            <option value=" ">Month</option>
+            <option value="01">January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+            </select>
+            <select name="expireYY" id="expireYY" required="required">
+                <option value=" ">Year</option>
+                <option value="18">2018</option>
+                <option value="19">2019</option>
+                <option value="20">2020</option>
+                <option value="21">2021</option>
+                <option value="22">2022</option>
+            </select>
+        <br><br>
+
+        <label for="card-code">Security Code:</label>
+        <input type="number" id="card-code" required="required">
+        <br><br>
+
+        <h3>Billing Address:</h3>
+        <label for="street">Street</label>
+        <input type="text" id="street" required="required" placeholder="Street"><br>
+        <label for="city">City:</label>
+        <input type="text" id="city" placeholder="City" required="required"><br>
+        <label for="state">State:</label>
+        <input type="text" id="state" placeholder="State" required="required"><br>
+        <label for="zip">Zipcode:</label>
+        <input type="text" required="required" id="zip" placeholder="Zip"><br><br>
+
+        <input type="checkbox" id="save-info" value="true">
+        <label for="save-info">Keep this credit card on file for future transactions.</label><br><br><br>
+
+        <button type="submit">Buy Now!</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,84 @@
+/* This file is named "style.css" and is located in the "css" directory.*/
+html, body {
+    background: azure url("https://images.pexels.com/photos/34174/pexels-photo.jpg?cs=srgb&dl=bed-computer-dark-34174.jpg&fm=jpg") center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Belgrano', serif;
+    color: seashell;
+}
+
+#main {
+    /* used to center elements */
+    width: 600px;
+    margin: 0 auto;
+}
+
+.name {
+    font-family: 'Kranky', cursive;
+    color: orangered;
+}
+
+#container strong, em {
+    color: orangered;
+}
+
+p {
+    text-align: center;
+    color: seashell;
+}
+
+.left {
+    float: left;
+}
+
+.center {
+    float: both;
+}
+
+.right {
+    float: right;
+}
+.fancy-header {
+    text-align: center;
+    color: seashell;
+    text-decoration: underline;
+}
+
+tr, td {
+    padding: 15px;
+    font-size: 18px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.centered {
+    text-decoration: underline;
+}
+
+th {
+    text-decoration: underline;
+}
+
+/* unvisited link (:link) */
+a:link {
+    color:red;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:black;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:blue;
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:green;
+}
