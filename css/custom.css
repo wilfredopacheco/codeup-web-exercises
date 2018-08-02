@@ -1,0 +1,17 @@
+.jumbotron {
+    background-image: url("http://java.codeup.com/examples/bootstrap/pizza.png");
+    background-size: cover;
+}
+h1 {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.58);
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .jumbotron {
+        display: block;
+    }
+}
+.badge {
+    border-radius: 25px;
+}
