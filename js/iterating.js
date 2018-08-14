@@ -13,7 +13,7 @@
      * array.
      */
 
-    console.log(people.length);
+    console.log("Number of elements in the array is " + people.length);
     /**
      * TODO:
      * Create log statements that will print each of the names individually by
@@ -50,7 +50,22 @@
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
+    function first(input) {
+        if(Array.isArray(input)) {
+            return input[0];
+        }
+    }
+    function second(input) {
+        if(Array.isArray(input)) {}
+        return input[1];
+    }
+    function last() {
+        console.log(people[people.length]);
+    }
 
 })();
 
-
+// names.forEach(function (element, index, array));
+// element === names[index]
+// element is also the same value as array[index]
+// Iterating: The process of moving across a list one item at a time.
