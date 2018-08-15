@@ -1,5 +1,4 @@
 "use strict";
-
 /**
  * TODO:
  * Create a function called 'sayHello' that takes a parameter 'name'.
@@ -101,8 +100,15 @@ alert("Your tip should be: $"+ calculateTip(percentage, billTotal).toFixed(2));
  */
 function applyDiscount(originalPrice, percentage) {
     var discount = (originalPrice * percentage);
-    return originalPrice - discount;
+    return (originalPrice - discount);
 }
 var price = prompt("What is the price of the item?");
 var discount = prompt("What is the discount amount?");
-alert("Your new price is: $" + applyDiscount(price, discount/100));
+discount = discount/100;
+alert("Your discount price is: $" + applyDiscount(price, discount));
+
+function addSeven(number) {
+    return (parseInt(number) + 7);
+}
+var input = prompt("Please enter a number you would like to add seven to: ");
+alert("Here is your new number after adding seven: " + addSeven(input));
