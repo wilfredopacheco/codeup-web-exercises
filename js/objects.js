@@ -79,7 +79,9 @@
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
-     * variable named `books`. Each object should have a title and an author
+     * variable named `books`. Each object should have a
+     * title and an
+     * author
      * property. The author property should be an object with properties
      * `firstName` and `lastName`. Be creative and add at least 5 books to the
      * array
@@ -89,7 +91,20 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
-
+    var books = [{  title: "The Salmon of Doubt",       author: {firstName: "Douglas", lastName: "Adams" }},
+                {   title: "Walkaway",                  author: {firstName: "Cory", lastName: "Doctorow"}},
+                {   title: "A Brief History of Time",   author: {firstName: "Stephen", lastName: "Hawking"}},
+                {   title: "Texas Ranger",              author: {firstName: "James", lastName: "Patterson"}},
+                {   title: "Unhinged",                  author: {firstName: "Manigault", lastName: "Newman"}}
+    ];
+    function showBook(book, index) {
+        var title = book.title;
+        var first = book.author.firstName;
+        var last =  book.author.lastName;
+        var author = first + " " + last;
+        console.log("Book # " + index + "\nTitle: " + title + "\nAuthor: " + author + "\n---");
+    }
+    books.forEach(showBook, books.index);
     /**
      * TODO:
      * Loop through the books array and output the following information about
