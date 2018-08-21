@@ -24,6 +24,11 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
+<button id="btn1">Button 1</button>
+<button id="btn2">Button 2</button>
+<button id="btn3">Button 3</button>
+<button id="btn4">Button 4</button>
+
 
 <script>
     (function() {
@@ -32,21 +37,28 @@
         var mainHeader = document.getElementById('main-header');
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerText = "JavaScript is Cool";
+        // var declaration of function event for button one.
+        var btnOne = function (event){
+            mainHeader.innerText = "JavaScript is Cool";
+        };
 
         // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById('sub-header');
 
         // TODO: Set the text color of subHeader to blue
-        subHeader.style.color = 'blue';
+        var btnTwo = function (event){
+            subHeader.style.color = 'blue';
+        };
         // TODO: Uncomment the next line and get all list items
         var listItems = document.getElementsByTagName('li');
 
         // TODO: Set text color on every other list item to grey
-        for (var i = 0; i < listItems.length; i++){
+        var btnThree = function (event){
+            for (var i = 0; i < listItems.length; i++){
                 listItems[i].style.color = "grey";
                 i++;
-        }
+            }
+        };
         // TODO: Set text color of li with dbid = 1 to blue
         document.getElementsByTagName('li')[0].style.color = 'blue';
 
@@ -54,7 +66,16 @@
         var subParagraphs = document.getElementsByClassName('sub-paragraph')[0];
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs.innerText = "Mission Accomplished!";
+        var btnFour = function (event) {
+            subParagraphs.innerText = "Mission Accomplished!";
+        };
+        //listeners for buttons one-four.
+        document.getElementById('btn1').addEventListener('click', btnOne, false);
+        document.getElementById('btn2').addEventListener('click', btnTwo, false);
+        document.getElementById('btn3').addEventListener('click', btnThree, false);
+        document.getElementById('btn4').addEventListener('click', btnFour, false);
+
+
     })();
 </script>
 </body>
