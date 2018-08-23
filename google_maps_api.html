@@ -17,7 +17,7 @@
 <!-- div to hold map -->
 <div id="map-canvas"></div>
 <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
-<script src="https://maps.googleapis.com/maps/api/js?key=XXXXXXXXXXXXXXX"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AXXXXXXXXXXXX"></script>
 <!-- Script to show address on map -->
 <script type="text/javascript">
     (function() {
@@ -37,10 +37,21 @@
             mapTypeId: google.maps.MapTypeId.HYBRID
             // mapTypeId: google.maps.MapTypeId.TERRAIN
         };
+
         // Render the map
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
         var salt = {lat: 30.131591, lng:-98.013102};
-        var marker = new google.maps.Marker({position: salt, map: map});
+        var marker = new google.maps.Marker({position: salt, map: map, animation: google.maps.Animation.DROP});
+        // Create a new infoWindow object with content
+        var infowindow = new google.maps.InfoWindow({
+            content: "Changing the world, one BBQ plate at a time."
+        });
+
+// Open the window using our map and marker
+        //added listener to the in window marker.
+        map.addListener('click', function(){
+            infowindow.open(map, marker);
+        });
     })();
 </script>
 </body>
