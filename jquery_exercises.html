@@ -16,6 +16,7 @@
     </ul>
 </div>
     <h1 class="codeup">Hello World!!!</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam enim exercitationem necessitatibus veniam? Aut deleniti deserunt distinctio enim expedita impedit, mollitia voluptatem. Consequuntur eaque iste voluptatem. Deleniti inventore mollitia quis!</p>
     <p>jQuery and JavaScript are like bark on a tree. Here are some more metaphors:</p>
     <ul id="list-more">
         <li>like peanut butter and jelly</li>
@@ -24,6 +25,7 @@
     <div class="codeup">
         The End.
     </div>
+<div id="output"></div>
 <script type="text/javascript" src="./js/jquery-2.x-git.js"></script>
 <script>
 
@@ -41,7 +43,27 @@
     // });
 
     // $('.codeup').css('border', '1px solid red');
-    $('li, h1, p').css('font-size', '20px');
+    // $('li, h1, p').css('font-size', '20px');
+    //
+    // $('*').css({
+    //     'color': 'grey',
+    //     'background-color': 'black'
+    // });
+    //
+    // $('body').mousemove(function(e){
+    //     $('#output').text("X: " + e.clientX + ", " + "Y: " + e.clientY);
+    // });
+
+    $('h1').click(function(e){
+        $(this).css('background-color', 'pink')
+    });
+    $('p').dblclick(function(e){
+        $(this).css('font-size', '18px')
+    });
+    $('li').hover(function(e){
+        $(this).css('color', 'red')
+    });
+
 
 </script>
 </body>
