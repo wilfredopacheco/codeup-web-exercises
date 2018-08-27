@@ -8,12 +8,41 @@
     <title>Document</title>
 </head>
 <body>
-
-<script src="./js/jquery-2.x-git.js"></script>
+<div class="codeup">
+    <ul>
+        <li>Home</li>
+        <li>Recent</li>
+        <li>More Links</li>
+    </ul>
+</div>
+    <h1 class="codeup">Hello World!!!</h1>
+    <p>jQuery and JavaScript are like bark on a tree. Here are some more metaphors:</p>
+    <ul id="list-more">
+        <li>like peanut butter and jelly</li>
+        <li>like mac and cheese </li>
+    </ul>
+    <div class="codeup">
+        The End.
+    </div>
+<script type="text/javascript" src="./js/jquery-2.x-git.js"></script>
 <script>
-    $(document).ready(function() {
-        alert( 'The DOM has finished loading!' );
-    });
+
+    // $(document).ready(function () {
+    //     alert( 'The DOM has finished loading!' );
+    // });
+
+
+    // $(document).ready(function() {
+        // alert( 'The DOM has finished loading!' )
+        // var contents = $('#list-more').html();
+        // alert(contents);
+        // var moreContents = $('.menu');
+        // alert(moreContents);
+    // });
+
+    // $('.codeup').css('border', '1px solid red');
+    $('li, h1, p').css('font-size', '20px');
+
 </script>
 </body>
 </html>
