@@ -6,29 +6,57 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Konami Code</title>
+    <style>
+        .h {
+            font-size: 80px;
+            font-weight: bold;
+            text-shadow: 22px 23px 2px rgba(28,110,164,0.62);
+        }
+        .logo {
+            background: transparent url("./img/konami-logo-300x300.png") no-repeat scroll 50% 50%;
+        }
+    </style>
 </head>
 <body>
 <h1>Konami Code</h1>
-
+<!--<div class="logo"><img src="./img/konami-logo-300x300.png" alt="logo"></div>-->
+<div class="h">Konami Code</div>
+<!--<div class="logo">-->
+    <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet, deserunt dignissimos eum eveniet excepturi hic, illum iure minima nihil nisi optio quas quasi quidem velit vero voluptatum! A, at.</p></div>-->
+    <!--<p></p> </div>-->
+<!--<div class="logo"><img src="./img/konami-logo-300x300.png" alt="logo"></div>-->
+<!--<div class="logo"><img src="./img/konami-logo-300x300.png" alt="logo"></div>-->
 <script type="text/javascript" src="./js/jquery-2.x-git.js"></script>
 
 <script>
     "use strict";
 
     var input = [];
-    var konamiCode = [38, 40, 38, 40, 37, 39, 37, 39, 66, 65];
-
+    var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    $(document).ready(function(){
+        $('.h, .logo').slideUp().hide();
+    });
     $(document).keyup(function(event){
         console.log(event.keyCode);
         input.push(event.keyCode);
     });
 
+    // $(document).keydown(function(event){ //sends key press to p tag on page.
+    //     $('p').append(event.key);
+    // });
+
     $(document).keydown(function(event){
         var one = konamiCode.toString();
         var two = input.toString();
-        if (one === two){
-            alert('You have added 30 lives!');
+        if (one === two) {
+            // alert('You have added 30 lives!');
+        $('h1').css('transform', 'scaleX(1)').css('transition', 'transform 0.5s ease').css('transform', 'scaleX(2)').slideUp(500);
+        $('.h').slideDown(1500);
+        $('.logo').fadeIn(2000);
+
         }
+        // $('div, h1').stop();
+
     });
 
 </script>
