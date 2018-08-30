@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <title>Play</title>
+</head>
+<body class="container">
+<h1>Chuck Norris Jokes...</h1>
+<div class="row"></div>
+<div class="col">
+    <button class="button button-inform float-right" type="button" id="more">I want more!!</button>
+</div>
+<br>
+<hr>
+<div class="row">
+    <div class="row" id="icon"></div>
+    <div class="display-4" id="display"></div>
+</div>
+<!--<script src="./js/me.js" ></script>-->
+<!--<script>-->
+<!--document.getElementById("display").innerText = "function";-->
+<!--</script>-->
+<script>
+
+    $.ajax("https://api.chucknorris.io/jokes/random").done(function(data, status, jqXhr) {
+        console.log("AJAX call completed successfully!");
+        console.log("Request status: " + status);
+        console.log("Data returned from server:");
+        console.log(data);
+        $('#display').text(data.value);
+        var icon = '<img src='+data.icon_url+'>';
+        $('#icon').append(icon);
+        $('#more').click(function(){
+            window.location.reload();
+        });
+        // document.body.innerHTML+= data.value;
+    });
+</script>
+<link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
