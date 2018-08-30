@@ -10,35 +10,52 @@
     <style>
         * {
             font-family: 'Averia Serif Libre', cursive;
-
         }
         .jumbotron {
-            background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/87/Mesquite_Sand_Dunes_in_Death_Valley.jpg");
+            background-image: url("https://images.pexels.com/photos/164226/pexels-photo-164226.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
             background-size: cover;
         }
-
         /*<!--.invisible {-->*/
             /*<!--display: none;-->*/
         /*<!--}-->*/
     </style>
 </head>
 <body class="container-fluid phm bg-olive black">
+<div class="row" id="newsletter">
+    <div class="col-12 inline-block">
+        <h1>Would you like to sign up for our newsletter?</h1>
+    </div>
+    <div class="col-3">
+        <span>X</span>
+    </div>
+</div>
 <div class="jumbotron jumbotron-fluid">
-    <div class="container text-right">
+    <div class="container text-left">
         <h1 class="m-right-0">10 FAQs About National Parks</h1>
         <!--<p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>-->
     </div>
 </div>
 <!--<h1 class="text-center display-3">10 FAQs About National Parks</h1>-->
 <div class="row">
-    <div class="container-fluid">
+<div class="col-3 float-left">
+        <div><btn class="btn btn-dark col" id="visit">Visits</btn></div>
+    <div class="col-12 my-1"></div>
+        <div><btn class="btn btn-dark col" id="button">button</btn></div>
+    <div class="col-12 my-1"></div>
+        <div><btn class="btn btn-dark col" id="button">button</btn></div>
+    <div class="col-12 my-1"></div>
+        <div><btn class="btn btn-dark col" id="button">button</btn></div>
+    <div class="col-12 my-1"></div>
+        <div><btn class="btn btn-dark col" id="button">button</btn></div>
+    <div class="col-12 my-1"></div>
+        </div>
+    <div class="col-9 float-left">
         <div class="card bg-transparent">
             <dl>
                 <dt id="1"><h4>Who is the director of the National Park Service?</h4></dt>
                 <dd id="a-1" class="card-body">Dan Smith is the deputy director exercising the authority of director for the National Park Service.</dd>
             </dl>
         </div>
-        <div class="row inline-block"></div>
         <div class="card bg-transparent">
             <dl>
                 <dt id="2"><h4>How many employees are in the National Park Service?</h4></dt>
@@ -115,13 +132,10 @@
         </div>
     </div>
     <!--<div class="col-6"></div>-->
-</div>
-<btn class="btn btn-dark col-4" id="visit">Visits</btn>
-
+</div></div>
 <!--<btn class="btn btn-dark col-4" id="loc">Locations</btn>-->
-<div class="container-fluid">
     <div class="row">
-        <div class="card col-4 bg-transparent border border-silver">
+        <div class="card col-4 bg-transparent">
             <h3>Big Bend</h3>
             <ul>
                 <li>Located in Texas.</li>
@@ -130,10 +144,10 @@
                 <li>Gets about 440,276 recreation visitors (2017)</li>
             </ul>
             <div class="container-fluid card-header">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Big_Bend_National_Park_PB112573.jpg/400px-Big_Bend_National_Park_PB112573.jpg" alt="image"">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Big_Bend_National_Park_PB112573.jpg/400px-Big_Bend_National_Park_PB112573.jpg" alt="image">
             </div>
         </div>
-        <div class="card col-4 bg-transparent border border-silver">
+        <div class="card col-4 bg-transparent">
             <h3>Glacier Bay</h3>
             <ul>
                 <li>Located in Alaska.</li>
@@ -145,7 +159,7 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/GlacierBay3.jpg" alt="image">
             </div>
         </div>
-        <div class="card col-4 bg-transparent border border-silver">
+        <div class="card col-4 bg-transparent">
             <h3>Death Valley</h3>
             <ul>
                 <li>Located in California, Nevada</li>
@@ -153,19 +167,27 @@
                 <li>Has an area of 3,373,063.14 acres</li>
                 <li>Gets about 1,294,827 recreation visitors (2017)</li>
             </ul>
-            <div class="container-fluid card-header">
+            <div class="card-header">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mesquite_Sand_Dunes_in_Death_Valley.jpg/400px-Mesquite_Sand_Dunes_in_Death_Valley.jpg" alt="image">
             </div>
         </div>
     </div>
-</div>
+
+<!--<footer class="row inline-block">-->
+    <!--<div class="f-bottom">-->
+        <!--<img src="https://images.pexels.com/photos/253905/pexels-photo-253905.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"-->
+             <!--alt="image">-->
+        <!--<div>        <a href="https://en.wikipedia.org/wiki/List_of_national_parks_of_the_United_States">reference LINK</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</footer>-->
     <script src="js/jquery-2.x-git.js"></script>
     <script>
         "use strict";
         $('dd').addClass('invisible').css('display', 'none');
         $('dt').click(function(e){
            // $(this).next.e.toggleClass('invisible').slideDown(1000);
-                $(this).next().toggleClass('invisible').slideDown(300).addClass('silver');
+                $(this).next().toggleClass('invisible').slideToggle(300).addClass('silver');
         });
         // $('#2').click(function(e){
         //     // $(this).next.e.toggleClass('invisible').slideDown(1000);
@@ -203,19 +225,21 @@
         //     // $(this).next.e.toggleClass('invisible').slideDown(1000);
         //     $('#a-10').toggleClass('invisible').slideDown(300).addClass('silver');
         // });
-
         $('#visit').click(function(e){
             $('li').next().next().next().css('background-color', 'yellow');
         });
-
         $('h3').click(function(index){
             $(this).next().css('font-weight', 'bold').children();
-
+            $(this).next().slideToggle().addClass('silver');
         });
         $('img').addClass('container-fluid d-flex');
         $('li').click(function(){
             $(this).parent().children().first().css('color', 'blue');
         });
+        $('span').click(function(){
+            $('#newsletter').slideToggle();
+        });
+        $('h3').next().hide();
 
         // $('h3').click(function(e){
         //     $('ul').css('font-weight', 'bold').children();
@@ -240,6 +264,5 @@
     <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
     </body>
 </html>
