@@ -36,9 +36,10 @@
     </div>
 </div>
 <!--<h1 class="text-center display-3">10 FAQs About National Parks</h1>-->
-<div class="row">
-<div class="col-3 float-left">
-        <div><btn class="btn btn-dark col" id="visit">Visits</btn></div>
+<div class="container row">
+<div class="col-3 float-left border border-dark">
+    <div class="col-12 my-1"></div>
+    <div><btn class="btn btn-dark col" id="visit">Visits</btn></div>
     <div class="col-12 my-1"></div>
         <div><btn class="btn btn-dark col" id="button">button</btn></div>
     <div class="col-12 my-1"></div>
@@ -132,7 +133,16 @@
         </div>
     </div>
     <!--<div class="col-6"></div>-->
-</div></div>
+</div>
+</div>
+<div class="row border border-dark" id="register">
+    <div>
+        <h2>Would you like to register for this site?</h2>
+    </div>
+    <div>
+        <span>X</span>
+    </div>
+</div>
 <!--<btn class="btn btn-dark col-4" id="loc">Locations</btn>-->
     <div class="row">
         <div class="card col-4 bg-transparent">
@@ -143,7 +153,7 @@
                 <li>Has an area of 801,163.21 acres</li>
                 <li>Gets about 440,276 recreation visitors (2017)</li>
             </ul>
-            <div class="container-fluid card-header">
+            <div class="container-fluid card-footer">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Big_Bend_National_Park_PB112573.jpg/400px-Big_Bend_National_Park_PB112573.jpg" alt="image">
             </div>
         </div>
@@ -155,7 +165,7 @@
                 <li>Has an area of 3,223,383.43 acres</li>
                 <li>Gets about 547,057 recreation visitors (2017)</li>
             </ul>
-            <div class="container-fluid card-header">
+            <div class="container-fluid card-footer">
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/GlacierBay3.jpg" alt="image">
             </div>
         </div>
@@ -167,7 +177,7 @@
                 <li>Has an area of 3,373,063.14 acres</li>
                 <li>Gets about 1,294,827 recreation visitors (2017)</li>
             </ul>
-            <div class="card-header">
+            <div class="card-footer">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mesquite_Sand_Dunes_in_Death_Valley.jpg/400px-Mesquite_Sand_Dunes_in_Death_Valley.jpg" alt="image">
             </div>
         </div>
@@ -237,9 +247,17 @@
             $(this).parent().children().first().css('color', 'blue');
         });
         $('span').click(function(){
-            $('#newsletter').slideToggle();
+            $('#newsletter').slideToggle().hide();
         });
         $('h3').next().hide();
+        $('#register').fadeOut().hide();
+        setInterval(function(){
+            $('#register').fadeIn(1000);
+        },8000);
+
+        $('span').click(function(e) {
+           $('#register').fadeOut().hide();
+        });
 
         // $('h3').click(function(e){
         //     $('ul').css('font-weight', 'bold').children();
