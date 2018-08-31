@@ -26,6 +26,22 @@
     "use strict";
     // TODO: Create an ajax GET request for /data/inventory.json
 
+    var info = $.ajax('./data/inventory.json').done(function(data, status, jqXhr){
+        console.log(data);
+        var current = [];
+
+        data.forEach(function(obj){
+            console.log(obj);
+            console.log(Object.getOwnPropertyNames(obj));
+            $('<tr>').appendTo('tbody');
+            current.push(obj.quantity);
+            $('<td>' + obj.title + '</td>').appendTo('tbody');
+            $('<td>' + obj.quantity + '</td>').appendTo('tbody');
+            $('<td>' + obj.price + '</td>').appendTo('tbody');
+            $('<td>' + obj.categories + '</td>').appendTo('tbody');
+            $('</tr>').appendTo('tbody');
+        }); console.log(current);
+    });
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
@@ -34,4 +50,19 @@
 </script>
 
 </body>
+<!--Exercises-->
+<!--Ajax Store-->
+<!--Download and save ajax-store.html.-->
+<!--Create a data directory and download inventory.json to that folder.-->
+<!--Your online tool store should load data from the JSON file using a get request and append the data to the table. You will need to use either $.ajax() or $.get(), and a .done() callback.-->
+<!--Add some new entries to inventory.json and see how the data on the page gets updated.-->
+<!--Add a "Refresh" button that will load inventory.json for you without having to refresh the entire page.-->
+<!--Add Twitter Bootstrap to your online store with some custom CSS to make the style your own.-->
+<!--Ajax Blog-->
+<!--Create a new html file called ajax-blog.html.-->
+<!--At minimum, your ajax blog will need an empty <div> with an id of posts.-->
+    <!--Add your own Bootstrap theme to this file as well. Feel free to use the same one as your store or choose a different one.-->
+    <!--Download blog.json to your data directory from before.-->
+    <!--Use ajax to load the contents of blog.json and add the data from it to your #posts div.-->
+    <!--Add additional entries to blog.json and make sure your changes are reflected on the page.-->
 </html>
