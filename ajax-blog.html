@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog/Twitter</title>
+    <style>
+        .logo {
+            width: 20%;
+            height: 20%;
+        }
+        .img-circle {
+            border-radius: 100%;
+            border: 4px solid var(--light-bg);
+        }
+    </style>
+</head>
+<body class="container bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Features</a>
+            <a class="nav-item nav-link" href="#">Pricing</a>
+            <a class="nav-item nav-link disabled" href="#">Disabled</a>
+        </div>
+    </div>
+</nav>
+<div class="jumbotron sticky-top">
+    <div class="media float-left pr-4 my-auto">
+        <img class="media-image img-circle" src="https://randomuser.me/api/portraits/women/18.jpg" alt="Random user">
+    </div>
+    <div class="d-flex float-right justify-content-end mb-0 pb-0">
+        <img src="Twitter%20All%20Brand%20Resources/Twitter%20Logos/Twitter_Logo_Blue/Twitter_Logo_Blue.png" alt="logo" class="logo">
+    </div>
+    <div class="container my-auto">
+        <h1 class="display-4">Jane Doe</h1>
+        <p class="lead">"Personal inspirational user quote."</p>
+    </div>
+</div>
+<div class="row">
+    <div id="posts" class="card container col-10 float-left">
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    (function() {
+        "use strict";
+        // TODO: Create an ajax GET request for /data/inventory.json
+
+        var info = $.ajax('./data/blog.json').done(function(data, status){
+            console.log(data);
+            var current = [];
+
+            data.forEach(function(obj){
+                console.log(obj);
+                console.log(Object.getOwnPropertyNames(obj));
+                $('<div class="row card">').appendTo('#posts');
+                current.push(obj.quantity);
+                $('<div class="card-header">' + obj.title + '</div>').appendTo('#posts');
+                $('<div class="container card-body">' + obj.content + '</div>').appendTo('#posts');
+                $('<div class="container card-text text-right">' + obj.categories + '</div>').appendTo('#posts');
+                $('<div class="card-footer text-success text-right">' + obj.date + '</div>').appendTo('#posts');
+                $('</div>').appendTo('#posts');
+            }); console.log(current);
+            console.log(status);
+            // $('#bar').attr('aria-valuenow =', status).css('width', status);
+        });
+        $('#reload').click(function(e){
+            window.location.reload();
+        });
+        // TODO: Take the data from inventory.json and append it to the products table
+        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+        //             its contents and fields
+        //       HINT: You will want to target #insertProducts for your new HTML elements
+    })();
+</script>
+<link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+<!--Ajax Blog-->
+<!--Create a new html file called ajax-blog.html.-->
+<!--At minimum, your ajax blog will need an empty <div> with an id of posts.-->
+<!--Add your own Bootstrap theme to this file as well. Feel free to use the same one as your store or choose a different one.-->
+<!--Download blog.json to your data directory from before.-->
+<!--Use ajax to load the contents of blog.json and add the data from it to your #posts div.-->
+<!--Add additional entries to blog.json and make sure your changes are reflected on the page.-->
+</html>
