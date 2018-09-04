@@ -15,7 +15,6 @@
 <div id="items" class="card bg-gray">
 </div>
 <br>
-<br>
 <div class="row text-center">
     <div class="col card" id="card1">
         <div id="card1-hi"></div>
@@ -74,7 +73,7 @@
                     $('<div>ID: ' + data.id + '</div>').appendTo('#items');
 
                     $('<div>Visibility: ' + data.visibility + '</div>').appendTo('#items');
-                        console.log(data.weather[0].icon);
+                        // console.log(data.weather[0].icon);
                     $('<div>Wind Speed: ' + data.wind.speed + '</div>').appendTo('#items');
                     $('<div>Wind Degree: ' + data.wind.deg + '</div>').appendTo('#items');
                     $('<div>Clouds: ' + data.clouds.all + '%</div>').appendTo('#items');
@@ -88,13 +87,13 @@
                     $('<div>Pressure: ' + data.main.pressure + '</div>').appendTo('#items');
                     // var far = data.main.temp * 9/5 - 459.67;
                     // console.log(Math.round(far));
-                    $('<div>Temperature: ' + data.main.temp + ' Degrees Fahrenheit</div>').appendTo('#items');
+                    $('<div>Current Temp: ' + data.main.temp + ' Degrees Fahrenheit</div>').appendTo('#items');
 
                     // max/min temp &#176 for degree in html
                     $('<div class="text-center"><h3><strong>' + Math.round(data.main.temp_max) + '&#176/' + Math.round(data.main.temp_min) +  '&#176</strong></h3></div>').appendTo('#card1');
 
                         // $('<div>Min: ' + data.main.temp_min + '</div>').appendTo('#card1');
-                    $('<div><strong>Temperature: </strong>' + Math.round(data.main.temp) + '&#176</div>').appendTo('#card1'); //current temp
+                    $('<div><strong>Current Temp: </strong>' + Math.round(data.main.temp) + '&#176</div>').appendTo('#card1'); //current temp
                     // $('<div>' + image + '</div>');
                     $("<div><img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png'></div>").appendTo("#card1");
                     $('<div><strong>Clouds: </strong>' + data.clouds.all + '%</div>').appendTo('#card1');
@@ -113,22 +112,23 @@
 
                     $('<div>Cod: ' + data.cod + '</div>').appendTo('#items');
                     // $(data.weather).each(function(obj) {
-                        console.log(' ');
+                    //     console.log(' ');
                     // });
                     // console.log(weather.id.join(", "));
                     $('</div>').appendTo('#items');
                     $(data.weather).each(function(label, obj){
                         info.push(obj);
                     });
-                    console.log(info);
+                    // console.log(info);
                     var threeDay = [];
                     $(info).each(function(label, obj){
-                        console.log(label + obj.main)
+                        // console.log(label + obj.main)
                         threeDay.push(label);
                         threeDay.push(obj.main);
                         threeDay.push(obj.description);
                         threeDay.push(obj.icon);
-                    }); console.log(threeDay.join(', '));
+                    });
+                    // console.log(threeDay.join(', '));
                     // $('<div>')
                     // var first = info.join(", ");
                     // var link = "src='http://openweathermap.org/img/w/" + first + ".png";
@@ -149,25 +149,25 @@
             var clouds = [];
             var dayThree = [];
             console.log(data);
-            console.log(data.list);
-            console.log(this);
+            // console.log(data.list);
+            // console.log(this);
             days.push(data.list);
             $(days).each(function(label, obj) {
                 // console.log(label);
                 $(obj).each(function(label, obj){
-                    console.log(obj.weather[0].icon);
+                    // console.log(obj.weather[0].icon);
                     dayTwo.push(obj.weather[0].icon);
-                    console.log(obj.weather[0].main);
+                    // console.log(obj.weather[0].main);
                     dayTwo.push(obj.weather[0].main);
-                    console.log(obj.weather[0].description);
+                    // console.log(obj.weather[0].description);
                     dayTwo.push(obj.weather[0].description);
-                    console.log(obj.main.temp);
+                    // console.log(obj.main.temp);
                     dayTwo.push(obj.main.temp);
-                    console.log(obj.main.humidity);
+                    // console.log(obj.main.humidity);
                     dayTwo.push(obj.main.humidity);
-                    console.log(obj.main.temp_max);
+                    // console.log(obj.main.temp_max);
                     dayTwo.push(obj.main.temp_max);
-                    console.log(obj.main.temp_min);
+                    // console.log(obj.main.temp_min);
                     dayTwo.push(obj.main.temp_min);
                     wind.push(obj.wind.speed);
                     pressure.push(obj.main.pressure);
@@ -177,7 +177,7 @@
                     // console.log(dayTwo);
                 });
             });
-            console.log(dayTwo);
+            // console.log(dayTwo);
             $('<div class="text-center"><h3><strong>' + Math.round(dayTwo[5]) + '&#176/' + Math.round(dayTwo[6]) +  '&#176</strong></h3></div>').appendTo('#card2');
             $('<div class="text-center"><h3><strong>' + Math.round(dayTwo[54]) + '&#176/' + Math.round(dayTwo[55]) +  '&#176</strong></h3></div>').appendTo('#card3');
 
@@ -189,7 +189,7 @@
 
             $('<div><strong>Humidity: </strong>' + dayTwo[4] + '</div>').appendTo('#card2'); //humidity
             $('<div><strong>Humidity: </strong>' + dayTwo[53] + '</div>').appendTo('#card3'); //humidity
-            console.log(wind);
+            // console.log(wind);
             $('<div><strong>Wind Speed: </strong>' + wind[0] + '</div>').appendTo('#card2');
             $('<div><strong>Wind Speed: </strong>' + wind[7] + '</div>').appendTo('#card3');
 
