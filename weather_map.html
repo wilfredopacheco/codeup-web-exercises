@@ -29,7 +29,7 @@
 <div id="items" class="card bg-gray">
 </div>
 <br>
-<div class="row text-center">
+<div class="row text-center" id="allCards">
     <div class="col card" id="card1">
         <div id="card1-hi"></div>
     </div>
@@ -75,7 +75,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="search">Search</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="search">Search</button>
             </div>
         </div>
     </div>
@@ -98,18 +98,39 @@
         //     console.log(Object.getOwnPropertyNames(data));
         //     var weather = [];
 
+        function maps(lat, long){
+            var l = lat;
+            var lo = long;
+        var mapOptions = {
+            zoom: 5,
+            center: {
+                lat:  l,
+                lng: lo
+            },
+            mapTypeId: google.maps.MapTypeId.HYBRID
+        };
+        // Render the map
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        var loc = {lat: l, lng:lo};
+        var marker = new google.maps.Marker({position: loc, map: map, animation: google.maps.Animation.DROP});
+        }
+
+        maps(lat, long);
+
+        function show(lat, long) {
+
             $.get("http://api.openweathermap.org/data/2.5/weather", {
                 APPID: localStorage.getItem("weatherapikey"),
-                lat:    lat,
-                lon:   long,
+                lat: lat,
+                lon: long,
                 units: "imperial"
-            }).done(function(data) {
+            }).done(function (data) {
                 console.log(data);
                 $('#items').slideUp().hide();
                 $('#map').slideUp().hide();
 
-                $(data).each(function(obj){
-                // //     console.log(Object.getOwnPropertyNames(obj));
+                $(data).each(function (obj) {
+                    // //     console.log(Object.getOwnPropertyNames(obj));
                     var info = [];
 
                     $('<div>').appendTo('#items');
@@ -124,7 +145,7 @@
                     $('<div>ID: ' + data.id + '</div>').appendTo('#items');
 
                     $('<div>Visibility: ' + data.visibility + '</div>').appendTo('#items');
-                        // console.log(data.weather[0].icon);
+                    // console.log(data.weather[0].icon);
                     $('<div>Wind Speed: ' + data.wind.speed + '</div>').appendTo('#items');
                     $('<div>Wind Degree: ' + data.wind.deg + '</div>').appendTo('#items');
                     $('<div>Clouds: ' + data.clouds.all + '%</div>').appendTo('#items');
@@ -141,9 +162,9 @@
                     $('<div>Current Temp: ' + data.main.temp + ' Degrees Fahrenheit</div>').appendTo('#items');
 
                     // max/min temp &#176 for degree in html
-                    $('<div class="text-center"><h3><strong>' + Math.round(data.main.temp_max) + '&#176/' + Math.round(data.main.temp_min) +  '&#176</strong></h3></div>').appendTo('#card1');
+                    $('<div class="text-center"><h3><strong>' + Math.round(data.main.temp_max) + '&#176/' + Math.round(data.main.temp_min) + '&#176</strong></h3></div>').appendTo('#card1');
 
-                        // $('<div>Min: ' + data.main.temp_min + '</div>').appendTo('#card1');
+                    // $('<div>Min: ' + data.main.temp_min + '</div>').appendTo('#card1');
                     $('<div><strong>Current Temp: </strong>' + Math.round(data.main.temp) + '&#176</div>').appendTo('#card1'); //current temp
                     // $('<div>' + image + '</div>');
                     $("<div><img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png'></div>").appendTo("#card1");
@@ -157,7 +178,7 @@
                     $('<div>Min: ' + data.main.temp_min + '</div>').appendTo('#items');
 
 
-                    $('<div>Message: ' + data.sys.message+ '</div>').appendTo('#items');
+                    $('<div>Message: ' + data.sys.message + '</div>').appendTo('#items');
                     $('<div>Sunrise: ' + data.sys.sunrise + '</div>').appendTo('#items');
                     $('<div>Sunset: ' + data.sys.sunset + '</div>').appendTo('#items');
 
@@ -167,12 +188,12 @@
                     // });
                     // console.log(weather.id.join(", "));
                     $('</div>').appendTo('#items');
-                    $(data.weather).each(function(label, obj){
+                    $(data.weather).each(function (label, obj) {
                         info.push(obj);
                     });
                     // console.log(info);
                     var threeDay = [];
-                    $(info).each(function(label, obj){
+                    $(info).each(function (label, obj) {
                         // console.log(label + obj.main)
                         threeDay.push(label);
                         threeDay.push(obj.main);
@@ -187,71 +208,72 @@
 
                 });
             });
-        $.get("http://api.openweathermap.org/data/2.5/forecast", {
-            APPID: localStorage.getItem("weatherapikey"),
-            lat:    lat,
-            lon:   long,
-            units: "imperial"
-        }).done(function(data) {
-            var days = [];
-            var dayTwo = [];
-            var wind = [];
-            var pressure = [];
-            var clouds = [];
-            var dayThree = [];
-            console.log(data);
-            // console.log(data.list);
-            // console.log(this);
-            days.push(data.list);
-            $(days).each(function(label, obj) {
-                // console.log(label);
-                $(obj).each(function(label, obj){
-                    // console.log(obj.weather[0].icon);
-                    dayTwo.push(obj.weather[0].icon);
-                    // console.log(obj.weather[0].main);
-                    dayTwo.push(obj.weather[0].main);
-                    // console.log(obj.weather[0].description);
-                    dayTwo.push(obj.weather[0].description);
-                    // console.log(obj.main.temp);
-                    dayTwo.push(obj.main.temp);
-                    // console.log(obj.main.humidity);
-                    dayTwo.push(obj.main.humidity);
-                    // console.log(obj.main.temp_max);
-                    dayTwo.push(obj.main.temp_max);
-                    // console.log(obj.main.temp_min);
-                    dayTwo.push(obj.main.temp_min);
-                    wind.push(obj.wind.speed);
-                    pressure.push(obj.main.pressure);
-                    clouds.push(obj.clouds.all);
+            $.get("http://api.openweathermap.org/data/2.5/forecast", {
+                APPID: localStorage.getItem("weatherapikey"),
+                lat: lat,
+                lon: long,
+                units: "imperial"
+            }).done(function (data) {
+                var days = [];
+                var dayTwo = [];
+                var wind = [];
+                var pressure = [];
+                var clouds = [];
+                var dayThree = [];
+                console.log(data);
+                // console.log(data.list);
+                // console.log(this);
+                days.push(data.list);
+                $(days).each(function (label, obj) {
+                    // console.log(label);
+                    $(obj).each(function (label, obj) {
+                        // console.log(obj.weather[0].icon);
+                        dayTwo.push(obj.weather[0].icon);
+                        // console.log(obj.weather[0].main);
+                        dayTwo.push(obj.weather[0].main);
+                        // console.log(obj.weather[0].description);
+                        dayTwo.push(obj.weather[0].description);
+                        // console.log(obj.main.temp);
+                        dayTwo.push(obj.main.temp);
+                        // console.log(obj.main.humidity);
+                        dayTwo.push(obj.main.humidity);
+                        // console.log(obj.main.temp_max);
+                        dayTwo.push(obj.main.temp_max);
+                        // console.log(obj.main.temp_min);
+                        dayTwo.push(obj.main.temp_min);
+                        wind.push(obj.wind.speed);
+                        pressure.push(obj.main.pressure);
+                        clouds.push(obj.clouds.all);
 
-                    // dayTwo.push(obj.main[1]);
-                    // console.log(dayTwo);
+                        // dayTwo.push(obj.main[1]);
+                        // console.log(dayTwo);
+                    });
                 });
+                // console.log(dayTwo);
+                $('<div class="text-center"><h3><strong>' + Math.round(dayTwo[5]) + '&#176/' + Math.round(dayTwo[6]) + '&#176</strong></h3></div>').appendTo('#card2');
+                $('<div class="text-center"><h3><strong>' + Math.round(dayTwo[54]) + '&#176/' + Math.round(dayTwo[55]) + '&#176</strong></h3></div>').appendTo('#card3');
+
+                $("<div><img src='http://openweathermap.org/img/w/" + dayTwo[0] + ".png'></div>").appendTo("#card2");
+                $("<div><img src='http://openweathermap.org/img/w/" + dayTwo[49] + ".png'></div>").appendTo("#card3");
+
+                $('<div><strong>Clouds: </strong>' + clouds[0] + '%</div>').appendTo('#card2'); //clouds
+                $('<div><strong>Clouds: </strong>' + clouds[7] + '%</div>').appendTo('#card3'); //clouds
+
+                $('<div><strong>Humidity: </strong>' + dayTwo[4] + '</div>').appendTo('#card2'); //humidity
+                $('<div><strong>Humidity: </strong>' + dayTwo[53] + '</div>').appendTo('#card3'); //humidity
+                // console.log(wind);
+                $('<div><strong>Wind Speed: </strong>' + wind[0] + '</div>').appendTo('#card2');
+                $('<div><strong>Wind Speed: </strong>' + wind[7] + '</div>').appendTo('#card3');
+
+                $('<div><strong>Pressure: </strong>' + pressure[0] + '</div>').appendTo('#card2');
+                $('<div><strong>Pressure: </strong>' + pressure[7] + '</div>').appendTo('#card3');
+
+                // console.log(days.main.temp);
+                // $('<strong>' + $(days.clouds) + '</strong>').appendTo('#card1-hi');
             });
-            // console.log(dayTwo);
-            $('<div class="text-center"><h3><strong>' + Math.round(dayTwo[5]) + '&#176/' + Math.round(dayTwo[6]) +  '&#176</strong></h3></div>').appendTo('#card2');
-            $('<div class="text-center"><h3><strong>' + Math.round(dayTwo[54]) + '&#176/' + Math.round(dayTwo[55]) +  '&#176</strong></h3></div>').appendTo('#card3');
 
-            $("<div><img src='http://openweathermap.org/img/w/" + dayTwo[0] + ".png'></div>").appendTo("#card2");
-            $("<div><img src='http://openweathermap.org/img/w/" + dayTwo[49] + ".png'></div>").appendTo("#card3");
-
-            $('<div><strong>Clouds: </strong>' + clouds[0] + '%</div>').appendTo('#card2'); //clouds
-            $('<div><strong>Clouds: </strong>' + clouds[7] + '%</div>').appendTo('#card3'); //clouds
-
-            $('<div><strong>Humidity: </strong>' + dayTwo[4] + '</div>').appendTo('#card2'); //humidity
-            $('<div><strong>Humidity: </strong>' + dayTwo[53] + '</div>').appendTo('#card3'); //humidity
-            // console.log(wind);
-            $('<div><strong>Wind Speed: </strong>' + wind[0] + '</div>').appendTo('#card2');
-            $('<div><strong>Wind Speed: </strong>' + wind[7] + '</div>').appendTo('#card3');
-
-            $('<div><strong>Pressure: </strong>' + pressure[0] + '</div>').appendTo('#card2');
-            $('<div><strong>Pressure: </strong>' + pressure[7] + '</div>').appendTo('#card3');
-
-
-            // console.log(days.main.temp);
-            // $('<strong>' + $(days.clouds) + '</strong>').appendTo('#card1-hi');
-        });
-
+        };
+        show(lat, long);
         // $(map).appendTo('#map-canvas');
         $('#reload').click(function(e){
             window.location.reload(items);
@@ -262,29 +284,19 @@
         $('#coord').click(function(e){
             $('#map').slideToggle();
         });
-        var mapOptions = {
-            // Set the zoom level
-            zoom: 5,
-            // This sets the center of the map at our location
-            center: {
-                lat:  lat,
-                lng: long
-            },
-            mapTypeId: google.maps.MapTypeId.HYBRID
-        };
-
-        // Render the map
-        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-        var loc = {lat: lat, lng:long};
-        var marker = new google.maps.Marker({position: loc, map: map, animation: google.maps.Animation.DROP});
 
         $('#search').click(function(e){
 
-            lat = document.getElementById("lat").value;
-            long = document.getElementById("long").value;
-            console.log(lat + long);
-        });
+            lat = $("#lat").val();
+            long = $("#lng").val();
 
+            console.log(lat + long);
+            $('.card').empty();
+            $('#cityName').empty();
+            show(lat, long);
+            $('#map-canvas').empty();
+            maps(lat, long);
+        });
     })();
 </script>
 <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
