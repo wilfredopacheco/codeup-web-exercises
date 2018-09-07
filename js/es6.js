@@ -39,9 +39,9 @@ const languages = ['html', 'js','css'];
 
 // TODO: rewrite the object literal using object property shorthand
 users.push({
-  name: name,
-  email: email,
-  languages: languages
+  name,
+  email,
+  languages
 });
 
 // TODO: replace `var` with `let` in the following variable declarations
@@ -49,7 +49,7 @@ let emails = [];
 let names = [];
 
 // TODO: rewrite the following using arrow functions
-let users=(user)=> {emails.push(user.email); names.push(user.name)};
+for (let user of users)  {emails.push(user.email); names.push(user.name)}
 
 // TODO: replace `var` with `let` in the following declaration
 let developers = [];
@@ -60,7 +60,7 @@ users.forEach(function(user) {
   const {name, email, languages} = user;
 
   // TODO: rewrite the assignment below to use template strings
-    developers.push(`${name}'s email is ${email}${name} knows ${languages}`)
+    developers.push(`${name}'s email is ${email}${name} knows ${languages.join(', ')}`)
   // developers.push(name + '\'s email is ' + email + name + ' knows ' + languages.join(', '));
 });
 
@@ -72,7 +72,8 @@ for(let developer of developers)
 // developers.forEach(function (developer) {
 
   // TODO: rewrite the assignment below to use template strings
-    list = `<li> ${developer} </li>`;
+    list += `<li>${developer}</li>`;
   // list += '<li>' + developer + '</li>';
 // });
 list += '</ul>';
+console.log(users);
