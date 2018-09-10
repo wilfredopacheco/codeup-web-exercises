@@ -51,22 +51,28 @@ console.log(allEmails);
 
 
 //     Use .map to create an array of strings where each element is a user's email address
-const yearsum = users.reduce((accumulator, user)=> {return accumulator + user.yearsOfExperience;},0);
+const yearsum = users.reduce((accumulator, user)=> {return accumulator + user.yearsOfExperience;}, 0);
 console.log(yearsum);
 console.log(yearsum/users.length);
 
 // Use reduce to get the total years of experience from the list of users. Once you get the total of years
 // you can use the result to calculate the average. current value of the element
 
-const largest = users.reduce((accumulator, currentValue)=>{
-    if (currentValue.email.length > accumulator.email){
-        return accumulator.email;
-    } else{
-        return currentValue.email
+const largest  = users.reduce((accumulator, user) => {
+    if (user.email.length > accumulator.length) {
+        return user.email;
+    } else {
+        return accumulator;
     }
-});
-
+}, '');
 console.log(largest);
+
+const instName = users.reduce((accumulator, user) => {
+    return accumulator + user.name + ' ';
+}, '');
+
+console.log(instName);
+
 //     Use reduce to get the longest email from the list of users.
 //     Use reduce to get the list of user's names in a single string. Example:
 // Your instructors are: ryan, luis, zach, fernando, justin.
