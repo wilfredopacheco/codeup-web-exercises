@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fibonacci</title>
+</head>
+<body class="container bg-black olive">
+<header class="display-2">Fibonacci</header>
+<div class="row display-4" id="display1"></div>
+
+<!--<div class="border" id="input">-->
+    <!--<div class="display-4">Enter your start point (0, 1) or (1, 1)</div>-->
+    <!--<input type="input" id="input1">-->
+    <!--<input type="input" id="input2">-->
+    <!--<button id="start" type="button">Start</button>-->
+    <!--<br>-->
+    <!--<br>-->
+<!--</div>-->
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+
+    let fibArray = [];
+    let first = 1;
+    let second = 1;
+    fibArray.push(first);
+    fibArray.push(second);
+    let num = ((one, two) => {
+        let input = one + two;
+       fibArray.push(input);
+    });
+    for (let i = 2; i < 10; i++){
+        num(fibArray[i-1].valueOf(), fibArray[i-2].valueOf());
+    }
+    $('#display1').text(fibArray.join(', '));
+    $('#start').click(() => {
+        fibArray = [];
+        first = $('#input1').val();
+        second = $('#input2').val();
+        fibArray.push(first);
+        fibArray.push(second);
+        $('#display1').text(fibArray.join(', '));
+    });
+    $('#display1').text('The first ten Fibonacci numbers are: ' + fibArray.join(', '));
+
+</script>
+<link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
