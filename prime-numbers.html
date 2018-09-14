@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prime Numbers</title>
+</head>
+<body class="container">
+<div>
+    <h1>Prime Number Checker:</h1>
+</div>
+<div class="row">
+    <div class="card col border border-black display-4" id="card1">Is your number prime?</div>
+    <div class="card col border border-black display-4" id="card2"></div>
+</div>
+<div>
+    <input type="text/input" id="check"> Press enter to check.
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+    var input;
+    let evaluate = ((input) => {
+
+        if (input > 2){
+            console.log(input%2===0);
+            return input%2 === 0;
+        } else {
+            return false;
+        }
+    });
+    $('#check').keyup((e) => {
+
+        if (e.keyCode == 13){
+            input = $('#check').val();
+            $('#card2').text(evaluate(input).valueOf());
+            $('#check').text('');
+        }
+    });
+</script>
+<link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
