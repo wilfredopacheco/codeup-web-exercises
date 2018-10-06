@@ -39,7 +39,7 @@
         <div class="" id="display">
         </div>
     </div>
-    <footer  class="bg-yellow" id="display2">
+    <footer  class="bg-yellow container text-center" id="display2">
     </footer>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script>
@@ -64,8 +64,12 @@
             }).done(function(data) {
                 console.log('this is the wrapper: ');
                 console.log(data);
+                console.log(data.attributionHTML);
+                let copyright = data.attributionHTML;
+                $(`<div class="display-4 container p-4 black">${copyright}</div>`).appendTo('#display2');
                 console.log('this is inside the wrapper called the container: ');
                 console.log(data.data);
+                console.log(data.data.results);
                 console.log(data.data.results[0]);
                 for (let i = 0; i < data.data.results.length; i++) {
                     $('<div class="card">').appendTo('#display');
