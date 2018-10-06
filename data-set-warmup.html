@@ -20,8 +20,8 @@
     <title>MARVEL</title>
 </head>
 <body class="container bg-yellow m-100">
-<header>
-    <div class="display-1 p-4"> MARVEL</div>
+<header class="p-4">
+    <div class="display-1 pt-4 mb-0"> MARVEL</div>
 </header>
     <div class="">
         <table class="text-center">
@@ -55,18 +55,20 @@
                 Params: {
                     "apikey": publicKey,
                     "ts": "ts",
-                    "hash": "9278b5819c79b05b1e8288104e113f32",
-                    "offset": "1"
+                    "hash": "9278b5819c79b05b1e8288104e113f32"
                 },
                 Headers: {
                     Accept: '*/*'
-                }
+                },
+
             }).done(function(data) {
                 console.log('this is the wrapper: ');
                 console.log(data);
                 console.log(data.attributionHTML);
                 let copyright = data.attributionHTML;
-                $(`<div class="display-4 container p-4 black">${copyright}</div>`).appendTo('#display2');
+                let copyright2 = data.attributionText;
+                $(`<span class="container black mt-0 unhi">${copyright2}</span>`).appendTo('header');
+                $(`<div class="container text-center p-4 black">${copyright}</div>`).appendTo('#display2');
                 console.log('this is inside the wrapper called the container: ');
                 console.log(data.data);
                 console.log(data.data.results);
