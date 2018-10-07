@@ -9,7 +9,6 @@
     *{
         font-family: 'Zilla Slab Highlight', cursive;
     }
-
     .prof {
         box-shadow: 10px 10px 5px grey;
     }
@@ -19,38 +18,78 @@
     </style>
     <title>MARVEL</title>
 </head>
-<body class="container bg-yellow m-100">
+<body class="container container-fluid-md- container-fluid-sm bg-yellow">
 <header class="p-4">
-    <div class="display-1 pt-4 mb-0"> MARVEL</div>
-</header>
-    <div class="">
-        <table class="text-center">
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tbody id="insert">
-
-            </tbody>
-        </table>
+    <div class="display-1 pt-4 mb-0">MARVEL<span class="display-4 pt-4 unhi mt-0">Characters</span>
     </div>
-    <div class="card bg-white">
-        <div class="" id="display">
+</header>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+Search Characters
+</button>
+
+    <div class="card bg-white p-4">
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-end">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item d-none d-xl-block disabled"><a class="page-link" href="#" aria-label="1">1</a></li>
+                <li class="page-item d-none d-xl-block"><a class="page-link" href="#" aria-label="2">2</a></li>
+                <li class="page-item d-none d-xl-block"><a class="page-link" href="#" aria-label="3">3</a></li>
+                <li class="page-item d-none d-xl-block"><a class="page-link" href="#" aria-label="4">4</a></li>
+                <li class="page-item d-none d-xl-block"><a class="page-link" href="#" aria-label="5">5</a></li>
+                <li class="page-item d-none d-xl-block"><a class="page-link" href="#" aria-label="6">6</a></li>
+                <li class="page-item d-none d-xl-block"><a class="page-link" href="#" aria-label="7">7</a></li>
+                <li class="page-item d-none d-xl-block"><a class="page-link" href="#" aria-label="8">8</a></li>
+                <li class="page-item d-none d-xl-block"><a class="page-link" href="#" aria-label="9">9</a></li>
+                <li class="page-item d-none d-xl-block"><a class="page-link" href="#" aria-label="10">10</a></li>
+                <li class="page-item d-none d-xl-block"><a class="page-link" href="#" aria-label="11">11</a></li>
+                <li class="page-item d-none d-xl-block"><a class="page-link" href="#" aria-label="12">12</a></li>
+                <li class="page-item d-none d-xl-block"><a class="page-link" href="#" aria-label="13">13</a></li>
+                <li class="page-item d-none d-xl-block"><a class="page-link" href="#" aria-label="14">14</a></li>
+                <li class="page-item d-none d-xl-block"><a class="page-link" href="#" aria-label="15">15</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="container container-fluid inline-flex" id="display">
         </div>
     </div>
-    <footer  class="bg-yellow container text-center" id="display2">
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <footer class="bg-yellow container text-center" id="display2">
     </footer>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script>
         (function () {
             const publicKey = "fe4d001d953344e520704d034e73c4da";
-            let items = function (obj){
-                    console.log(obj)
-                    };
-            let link;
-            let reload = $.ajax({
-                url: `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${publicKey}&hash=9278b5819c79b05b1e8288104e113f32`,
+            let limit = "&limit=50";
+            let offset;
+            let imageLink;
+            let details = `ts=1&apikey=fe4d001d953344e520704d034e73c4da&hash=9278b5819c79b05b1e8288104e113f32${limit}${offset}`;
+            let reload = $.get({
+                url: `http://gateway.marvel.com/v1/public/characters?${details}`,
                 type: "GET",
                 Params: {
                     "apikey": publicKey,
@@ -59,14 +98,15 @@
                 },
                 Headers: {
                     Accept: '*/*'
-                },
-
+                }
             }).done(function(data) {
                 console.log('this is the wrapper: ');
                 console.log(data);
-                console.log(data.attributionHTML);
+                // console.log(data.attributionHTML);
                 let copyright = data.attributionHTML;
                 let copyright2 = data.attributionText;
+                offset = data.offset;
+                // console.log(etag);
                 $(`<span class="container black mt-0 unhi">${copyright2}</span>`).appendTo('header');
                 $(`<div class="container text-center p-4 black">${copyright}</div>`).appendTo('#display2');
                 console.log('this is inside the wrapper called the container: ');
@@ -77,12 +117,57 @@
                     $('<div class="card">').appendTo('#display');
                     // console.log(data.data.results[i].thumbnail.path);
                     // console.log(data.data.results[i].thumbnail.extension);
-                    link = `${data.data.results[i].thumbnail.path}/landscape_medium.${data.data.results[i].thumbnail.extension}`;
-                    $(`<div class="prof bg-white m-3"><img src="${link}" alt="thumbnail" class="p-4"><span class="display-4 p-4">${data.data.results[i].name}</span></div>`).appendTo('#display');
-                    $(`<div class="container unhi"><strong>Description:</strong> ${data.data.results[i].description}</div>`).appendTo('#display');
+                    imageLink = `${data.data.results[i].thumbnail.path}/landscape_medium.${data.data.results[i].thumbnail.extension}`;
+                    $(`<div class="bg-white mb-3 shadow-lg p-3 mb-5 bg-white rounded"><img src="${imageLink}" alt="thumbnail" class="p-4"><span class="display-4 p-4">${data.data.results[i].name}</span></div>`).appendTo('#display');
+                    $(`<span class="container unhi p-2"><strong>Description:</strong> ${data.data.results[i].description}</span>`).appendTo('#display');
                     $('</div>').appendTo('#display');
                 }
             });
+            $('.page-item').click((e)=>{
+                // let inside = e.target.innerText;
+                // console.log(inside)
+                console.log(e.target.getAttribute('aria-label'))
+                    $('#display').empty();
+                let limit = "&limit=50";
+                let offset = ("&offset=" + e.target.getAttribute('aria-label'));
+                    let details = `ts=1&apikey=fe4d001d953344e520704d034e73c4da&hash=9278b5819c79b05b1e8288104e113f32${limit}${offset}`;
+                $.get({
+                        url: `http://gateway.marvel.com/v1/public/characters?${details}`,
+                        type: "GET",
+                        Params: {
+                            "apikey": publicKey,
+                            "ts": "ts",
+                            "hash": "9278b5819c79b05b1e8288104e113f32"
+                        },
+                        Headers: {
+                            Accept: '*/*'
+                        }
+                    }).done(function(data) {
+                        console.log('----------------------------------------------------------');
+                        console.log(offset);
+                        // console.log(etag);
+                        // console.log('this is inside the wrapper called the container: ');
+                        console.log(data.data);
+                        console.log(data.data.results);
+                        console.log(data.data.results[0]);
+                        for (let i = 0; i < data.data.results.length; i++) {
+                            $('<div class="card">').appendTo('#display');
+                            // console.log(data.data.results[i].thumbnail.path);
+                            // console.log(data.data.results[i].thumbnail.extension);
+                            imageLink = `${data.data.results[i].thumbnail.path}/landscape_medium.${data.data.results[i].thumbnail.extension}`;
+                            $(`<div class="bg-white mb-3 shadow-lg p-3 mb-5 bg-white rounded"><img src="${imageLink}" alt="thumbnail" class="p-4"><span class="display-4 p-4">${data.data.results[i].name}</span></div>`).appendTo('#display');
+                            $(`<span class="container unhi p-2"><strong>Description:</strong> ${data.data.results[i].description}</span>`).appendTo('#display');
+                            $('</div>').appendTo('#display');
+                        }});
+
+            })
+            // let more = $.get("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${publicKey}&hash=9278b5819c79b05b1e8288104e113f32callback_param", {
+            //     limit:  10,
+            //     offset: 20
+            // }).done(function(data) {
+            //     // do something with the data
+            //     console.log(data);
+            // });
         })();
         // $('.prof').css('background-color', 'pink')
     </script>
