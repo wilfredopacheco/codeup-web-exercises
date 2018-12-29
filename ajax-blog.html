@@ -15,7 +15,7 @@
 </head>
 <body class="container bg-dark">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Menu</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -23,8 +23,8 @@
         <div class="navbar-nav">
             <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="#">Features</a>
-            <a class="nav-item nav-link" href="#">Pricing</a>
-            <a class="nav-item nav-link disabled" href="#">Disabled</a>
+            <a class="nav-item nav-link" href="#">Pictures</a>
+            <a class="nav-item nav-link disabled" href="#">Links</a>
         </div>
     </div>
 </nav>
@@ -47,15 +47,15 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
-    (function() {
+    (()=> {
         "use strict";
         // TODO: Create an ajax GET request for /data/inventory.json
 
-        var info = $.ajax('./data/blog.json').done(function(data, status){
+        let info = $.ajax('./data/blog.json').done((data, status) => {
             console.log(data);
-            var current = [];
+            let current = [];
 
-            data.forEach(function(obj){
+            data.forEach((obj) => {
                 console.log(obj);
                 console.log(Object.getOwnPropertyNames(obj));
                 $('<div class="row card">').appendTo('#posts');
