@@ -1,36 +1,58 @@
 /*! Wilfredo Pacheco | MyCSS v1.0 | Bring vibrant colors to your webpage. */
+*{transition: all .5s;}
+.addfont{font-family: 'Finger Paint', cursive;}
 
 /*  black  */
 .blackmatte{color: #242424;}
 .lightblack{color: #37392E;}
 .blackheart{color: #131515}
+.blueblack{color: #011627}
+
 /*  red  */
 .lipstick{color: #FF007F;}
 .rubyred{color: #DE3C4B;}
+
 /*  pink  */
 .hotpink{color: #FF206E}
+.strawberry{color: #F27BAC}
+
 /*  blue  */
 .skyblue{color: #89DAFF;}
 .brightblue{color: #090C9B;}
+.darkblue{color: #1C2541}
+
 /*  green  */
 .militarygreen{color: #37392E;}
 .keylime{color: #87FF65;}
 .brightgreen{color: #0CCE6B;}
 .mint{color: #95FF8C}
+
 /*  brown  */
 .darkbrown{color: #30292F;}
+
 /*  purple  */
 .ultraviolet{color: #6320EE;}
+.plum{color: #7F0799}
+.grape{color: #9649CB}
+.ultraviolence{color: #9F00FF;}
+
 /*  orange  */
 .sunset{color: #FA9F42;}
 .orangejuice{color: #FF6700}
+.apricot{color: #FFC61E;}
+
 /*  yellow  */
 .gold{color: #F3CA40;}
+
 /*  white  */
 .chalk{color: #FFFFFF}
+
 /*  grey  */
 .darkgrey{color: #3F4045;}
 .darklightgrey{color: #333745;}
+.greycoco{color: #C0C0C0;}
+.silver{color: #E5E5E5;}
+
 /*  background colors  */
 .bg-blackmatte{background-color: #242424;}
 .bg-lipstick{background-color: #FF007F;}
@@ -52,35 +74,13 @@
 .bg-blackheart{background-color: #131515}
 .bg-mint{background-color: #95FF8C}
 .bg-orangejuice{background-color: #FF6700}
-/* btn 
-.btn-outline-ultraviolet {
-    color: #6c757d;
-    border-color: #6320EE
-}
+.bg-plum{background-color: #7F0799}
+.bg-grape{background-color: #9649CB}
+.bg-strawberry{background-color: #F27BAC}
+.bg-darkblue{background-color: #1C2541}
+.bg-greycoco{background-color: #C0C0C0;}
+.bg-apricot{background-color: #FFC61E;}
+.bg-silver{background-color: #E5E5E5;}
+.bg-ultraviolence{background-color: #9F00FF;}
+.bg-blueblack{background-color: #011627}
 
-.btn-outline-ultraviolet:hover {
-    color: #6320EE;
-    background-color: #6c757d;
-    border-color: #6c757d
-}
-
-.btn-outline-ultraviolet.focus,.btn-outline-secondary:focus {
-    box-shadow: 0 0 0 .2rem rgba(108,117,125,.5)
-}
-
-.btn-outline-ultraviolet.disabled,.btn-outline-secondary:disabled {
-    color: #6320EE;
-    background-color: transparent
-}
-
-.btn-outline-ultraviolet:not(:disabled):not(.disabled).active,.btn-outline-secondary:not(:disabled):not(.disabled):active,.show>.btn-outline-secondary.dropdown-toggle {
-    color: #6320EE;
-    background-color: #6320EE;
-    border-color: #6320EE
-}
-
-.btn-outline-ultraviolet:not(:disabled):not(.disabled).active:focus,.btn-outline-secondary:not(:disabled):not(.disabled):active:focus,.show>.btn-outline-secondary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 .2rem rgba(108,117,125,.5)
-}
-
-*/
