@@ -11,21 +11,25 @@
 /*  red  */
 .lipstick{color: #FF007F;}
 .rubyred{color: #DE3C4B;}
+.maccaroon{color: #8F325D}
 
 /*  pink  */
 .hotpink{color: #FF206E}
 .strawberry{color: #F27BAC}
+.cottoncandy{color: #F1BBE2}
 
 /*  blue  */
 .skyblue{color: #89DAFF;}
 .brightblue{color: #090C9B;}
 .darkblue{color: #1C2541}
+.tropicalblue{color: #41EAD4}
 
 /*  green  */
 .militarygreen{color: #37392E;}
 .keylime{color: #87FF65;}
 .brightgreen{color: #0CCE6B;}
 .mint{color: #95FF8C}
+.seagreen{color: #8BE8CB}
 
 /*  brown  */
 .darkbrown{color: #30292F;}
@@ -83,4 +87,9 @@
 .bg-silver{background-color: #E5E5E5;}
 .bg-ultraviolence{background-color: #9F00FF;}
 .bg-blueblack{background-color: #011627}
+.bg-seagreen{background-color: #8BE8CB}
+.bg-tropicalblue{background-color: #41EAD4}
+.bg-cottoncandy{background-color: #F1BBE2}
+.bg-maccaroon{background-color: #8F325D}
+
 
